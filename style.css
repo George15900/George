@@ -117,11 +117,16 @@
   justify-content: space-between;
   align-items: center;
 }
+h3.navbar{
+  color: #1565b9; 
+  text-align: center;
+  padding-left: 70px;
+}
 
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #fff;
+  color: #fff; 
 }
 
 /* Desktop Nav */
@@ -150,6 +155,8 @@
   font-size: 22px;
   cursor: pointer;
   color: #fff;
+  position: absolute;
+  margin-left: 0%;
 }
 
 /* ===== Mobile ===== */
@@ -1117,3 +1124,4 @@ img {
 .box {
   flex: 1 1 100%; /* full width on mobile */
 }
+

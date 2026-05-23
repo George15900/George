@@ -22,8 +22,9 @@
 <body>
 
   <header>
+  
   <nav class="navbar">
-     <h3 class="navbar">George Vincent</h3>
+      <h3 class="navbar">George Vincent</h3>
     <div class="logo" ></div>
 
     <!-- Mobile Menu Toggle Button -->
@@ -38,9 +39,11 @@
       <li><a class="nav-link" href="#skills" style="color:  #1565b9;">Skills</a></li>
       <li><a class="nav-link" href="#projects" style="color:  #1565b9;">Projects</a></li>
       <li><a class="nav-link" href="#certificates" style="color:  #1565b9;">Certificates</a></li>
+            <li><a class="nav-link" href="#contactForm" style="color:  #1565b9;">Message</a></li>
       <li><a class="nav-link" href="#contact" style="color:  #1565b9;">Contact</a></li>
       <li></li>
     </ul>
+   
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
   </nav>
 </header>
@@ -76,6 +79,7 @@
     <div class="hero-buttons">
       <a href="#projects" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      
     </div>
   </div>
 </div>
@@ -86,8 +90,8 @@
         <h2>About Me</h2>
         <div class="about">
             <div class="about-content">
-                <p>I am George Vincent, a third-year Bachelor of Computer Applications (BCA) student at Santhigiri College of Computer Science, Vazhithala, 
-                  Thodupuzha. I have a strong interest in web development, software development, and full-stack development.
+                <p>I am George Vincent, a third-year Bachelor of Computer Applications (BCA) student from St. Santhigiri  College Of Computer Science,Vazhithala ,Thodupuzha.
+I have a strong interest in web development, software development, and Science.
 </p>
                 <p>My technical skillset includes HTML, CSS, JavaScript, PHP, MySQL,Java, and I am currently learning Angular and Node.js to build advanced applications.
 I aim to work in a dynamic environment where I can apply my knowledge, contribute to projects, and continue growing as a Full Stack Developer.</p>
@@ -135,7 +139,7 @@ I aim to work in a dynamic environment where I can apply my knowledge, contribut
                 I'm a Computer Applications student skilled in web development, 
                 always learning and building practical projects to improve my abilities.
  </p><p style="color: rgb(252, 252, 252); text-size-adjust:10px;"><b>
-Age:20</p></b>
+Age:21</p></b>
 </p> </b><p style="color: rgb(252, 252, 252); text-size-adjust:10px;">
 Hobbies:</b> Programming 💻, Innovating new inventions 🔬⚡, and Traveling 🚴‍♂️
  </p><p style="color: rgb(252, 252, 252); text-size-adjust:10px;">
@@ -264,8 +268,20 @@ From:</b> Kerala, India
         </div>
         <p class="text-center">Full Screen</p>
         </div>
-
-        
+<!-- Project 4 -->
+        <div class="project-card" onclick="openVideoModal('ct.mp4')">
+            <div class="project-img">
+                <video width="110%" height="110%" autoplay loop muted>
+                    <source src="ct.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="project-content">
+                <h3>Control Technology</h3>
+          <p style="color:  white;">Developed for IT company admin management to manage employees and jobseekers. 
+Technologies: Angular, Node.Js, MySQL. </p>
+        </div>
+        <p class="text-center">Full Screen</p>
+        </div>    
 
     </div>
 </section>
@@ -346,6 +362,28 @@ From:</b> Kerala, India
     </div>
  
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> </section>
+
+       <!-- Contact Form -->
+             <h2>Message</h2>
+             <div class="carousel-container">
+<div class="contact-form">
+<form id="contactForm" method="POST" action="https://formsubmit.co/georgevincen15@gmail.com">
+
+    <input type="hidden" name="_captcha" value="false" style="color: black;" required>
+
+    <input type="text" name="name" placeholder="Your Name" required style="color: black;">
+
+    <input type="tel" name="phone" placeholder="Phone Number" required maxlength="10" minlength="10" pattern="[6-9]{1}[0-9]{9}" title="Please enter a valid phone number"
+     style="color: black;">
+
+    <textarea name="message" rows="5" placeholder="Your Message" required style="color: black;"></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+</div>
+</div>
+
   <!-- Contact -->
   <section id="contact">
     <h2>Let's Connect</h2>
@@ -361,7 +399,7 @@ From:</b> Kerala, India
         <span></span>
         WhatsApp
     </a>
-     <a href="mailto:georgevincen15@gmail.com"
+    <a href="mailto:georgevincen15@gmail.com"
      onclick="this.href='https://mail.google.com/mail/?view=cm&fs=1&to=georgevincen15@gmail.com'" class="cm">
         <span class="contact"></span>
         <span></span>
@@ -378,7 +416,7 @@ From:</b> Kerala, India
     </a>
     </div>
          <div class="cs">
-           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=georgevincen15@gmail.com" class="cm">
+           <a href="https://www.instagram.com/georgevincent_adukuzhiyil?igsh=aWY0eXIzcmN3Mjhh"class="cm">
         <span class="contact"></span>
         <span></span>
         <span></span>
@@ -621,10 +659,54 @@ function closeVideoModal() {
     video.src = "";  
     modal.classList.remove("active");
 }
+// Contact Form Submission
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const form = this;
+
+    const formData = new FormData(form);
+
+    formData.append("_captcha", "false");
+
+    try {
+
+        const response = await fetch(
+            "https://formsubmit.co/ajax/georgevincen15@gmail.com",
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json"
+                },
+                body: formData
+            }
+        );
+
+        const result = await response.json();
+
+        console.log(result);
+
+        if (response.ok) {
+            alert("Message Sent Successfully ✅");
+            form.reset();
+        } else {
+            alert(result.message || "Something went wrong ❌");
+        }
+
+    } catch (error) {
+        console.log(error);
+        alert("Error sending message ❌");
+    }
+
+});
   </script>
 
 </body>
 </html>
+
+
+
 
 
 
